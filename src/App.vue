@@ -2,13 +2,21 @@
   <div id="app">
     <h1>Мой первый Vue 3 + TypeScript проект</h1>
     <Counter />
-    <Greeting name="Филимон" :age="58" />
+    <CounterDemo />
+    <Greeting name="Абай" :age="58" />
+    <Counter />
+    <CounterDemo />
+    <Greeting name="Филимон" :age="45" />
+    <hr />
+    <UsersList />
   </div>
 </template>
 
 <script setup lang="ts">
 import Counter from './components/Counter.vue';
+import CounterDemo from './components/CounterDemo.vue';
 import Greeting from './components/Greeting.vue';
+import UsersList from './components/UsersList.vue';
 </script>
 
 <style>
