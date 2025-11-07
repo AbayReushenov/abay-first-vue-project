@@ -10,14 +10,19 @@ export function useFetch<T>(url: string) {
     loading.value = true
     error.value = null
     try {
+      // Используем простой fetch - прокси Vite обработает запрос
       const res = await fetch(url)
+
       if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`)
+        const errorText = await res.text()
+        throw new Error(`HTTP error! status: ${res.status} - ${errorText}`)
       }
+
       data.value = await res.json()
     } catch (e) {
       error.value = e as Error
       data.value = null
+      console.error('Fetch error:', e)
     } finally {
       loading.value = false
     }
