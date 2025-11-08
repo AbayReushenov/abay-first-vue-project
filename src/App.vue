@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <h1>Мой первый Vue 3 + TypeScript проект</h1>
+    <GreetingTwo />
     <Counter />
     <CounterDemo />
     <Greeting name="Абай" :age="58" />
@@ -13,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import GreetingTwo from './components/GreetingTwo.vue';
 import Counter from './components/Counter.vue';
 import CounterDemo from './components/CounterDemo.vue';
 import Greeting from './components/Greeting.vue';
