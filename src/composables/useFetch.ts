@@ -10,11 +10,16 @@ export function useFetch<T>(url: string) {
     loading.value = true
     error.value = null
     try {
+      console.log('Fetching URL:', url)
       // Используем простой fetch - прокси Vite обработает запрос
       const res = await fetch(url)
 
+      console.log('Response status:', res.status, res.statusText)
+      console.log('Response URL:', res.url)
+
       if (!res.ok) {
         const errorText = await res.text()
+        console.error('API Error Response:', errorText)
         throw new Error(`HTTP error! status: ${res.status} - ${errorText}`)
       }
 

@@ -17,9 +17,21 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': {
+      '^/api/.*': {
         target: 'https://reqres.in',
         changeOrigin: true,
+        secure: true,
+        configure: (proxy, _options) => {
+          proxy.on('error', (err, _req, _res) => {
+            console.log('❌ Proxy error:', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, _res) => {
+            console.log('➡️  Proxy Request:', req.method, req.url, '→', proxyReq.path);
+          });
+          proxy.on('proxyRes', (proxyRes, req, _res) => {
+            console.log('⬅️  Proxy Response:', proxyRes.statusCode, req.url);
+          });
+        },
       },
     },
   },
