@@ -10,6 +10,8 @@
     <Greeting name="Филимон" :age="45" />
     <hr />
     <UsersList />
+    <hr/>
+    <DayThreeDirectives />
   </div>
 </template>
 
@@ -19,6 +21,7 @@ import Counter from './components/Counter.vue';
 import CounterDemo from './components/CounterDemo.vue';
 import Greeting from './components/Greeting.vue';
 import UsersList from './components/UsersList.vue';
+import DayThreeDirectives from './DayThreeDirectives.vue';
 </script>
 
 <style>
