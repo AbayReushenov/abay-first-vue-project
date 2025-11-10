@@ -19,7 +19,10 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
-const currentImage = ref('https://i.pinimg.com/736x/c0/19/0f/c0190fbf59f566234f0d68c5f4cbeed1.jpg?text=Vue+Image');
+const image_url = 'https://static.tildacdn.com/tild6639-6338-4265-a330-363036396334/mashaneuro9_Medium_f.png';
+const ref_params = image_url + '?text=Vue+Image';
+const ref_error_params = image_url + '?text=Error';
+const currentImage = ref(ref_params);
 const isLarge = ref(false);
 
 const imageAlt = computed(() => {
@@ -33,7 +36,7 @@ const toggleSize = () => {
 
 const onImageError = () => {
   console.log('Ошибка загрузки изображения!');  // Для отладки
-  currentImage.value = 'https://i.pinimg.com/736x/c0/19/0f/c0190fbf59f566234f0d68c5f4cbeed1.jpg?text=Error';  // Fallback
+  currentImage.value = ref_error_params;  // Fallback
 };
 </script>
 
